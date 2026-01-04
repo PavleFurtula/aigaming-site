@@ -1,9 +1,13 @@
 :root {
   --bg-main: #05010d;
   --bg-secondary: #0b0520;
+
   --neon-pink: #ff2fd7;
   --neon-blue: #00cfff;
+  --deep-purple: #6b4cff;
+
   --text-main: #e6e6ff;
+  --text-muted: rgba(230,230,255,0.75);
 }
 
 * {
@@ -19,115 +23,155 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero {
   min-height: 100vh;
+  padding: 0 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,47,215,0.15), transparent 40%),
+    radial-gradient(circle at 75% 80%, rgba(0,207,255,0.15), transparent 40%);
 }
 
 .hero h1 {
   font-family: 'Orbitron', monospace;
   font-size: 4rem;
+  max-width: 900px;
+
   background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 1.4rem;
-  max-width: 600px;
-  opacity: 0.9;
+  max-width: 720px;
+  color: var(--text-muted);
 }
 
+/* ================= BUTTON ================= */
+
 button {
-  margin-top: 40px;
-  padding: 15px 35px;
+  margin-top: 45px;
+  padding: 16px 38px;
+
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, var(--neon-pink), var(--deep-purple));
   color: white;
+
   font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+
   cursor: pointer;
-  box-shadow: 0 0 30px rgba(255,47,215,0.4);
-  transition: 0.3s;
+
+  box-shadow:
+    0 0 30px rgba(255,47,215,0.4),
+    0 0 60px rgba(107,76,255,0.25);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 60px rgba(0,207,255,0.7);
+  box-shadow:
+    0 0 45px rgba(0,207,255,0.6),
+    0 0 90px rgba(0,207,255,0.35);
 }
 
-/* FEATURES */
+/* ================= FEATURES ================= */
+
 .features {
   padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 40px;
-  max-width: 1100px;
-  margin: auto;
 }
 
-/* GLASS CARD */
+/* ================= GLASS CARD ================= */
+
 .glass-card {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 22px;
-  padding: 30px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-  transition: 0.35s;
+
+  padding: 32px;
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.35),
+    inset 0 0 20px rgba(255,255,255,0.04);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-14px) scale(1.02);
   box-shadow:
-    0 0 40px rgba(255,47,215,0.4),
+    0 0 40px rgba(255,47,215,0.35),
     0 0 80px rgba(0,207,255,0.3);
 }
+
+/* Card content */
 
 .tag {
   font-size: 0.7rem;
   letter-spacing: 2px;
   color: var(--neon-pink);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .glass-card h3 {
-  margin-top: 15px;
+  margin-top: 16px;
   font-family: 'Orbitron', monospace;
+  font-size: 1.4rem;
   color: var(--neon-blue);
 }
 
 .glass-card p {
-  margin-top: 10px;
-  opacity: 0.85;
+  margin-top: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
-/* NEWSLETTER */
+/* ================= NEWSLETTER ================= */
+
 .newsletter {
   padding: 120px 20px;
   text-align: center;
-  background: radial-gradient(circle at top, #1b003d, #05010d);
+
+  background:
+    radial-gradient(circle at top, #1b003d, #05010d);
 }
 
 .newsletter h2 {
   font-family: 'Orbitron', monospace;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
 }
 
 .newsletter p {
-  margin-top: 15px;
-  opacity: 0.85;
+  margin-top: 18px;
+  color: var(--text-muted);
 }
 
 .newsletter form {
-  margin-top: 35px;
+  margin-top: 40px;
+
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -135,10 +179,19 @@ button:hover {
 }
 
 .newsletter input {
-  padding: 15px;
-  border-radius: 12px;
+  padding: 15px 18px;
+  width: 260px;
+
+  border-radius: 14px;
   border: none;
+
   background: #0f0026;
   color: white;
-  width: 260px;
+
+  outline: 1px solid rgba(255,47,215,0.3);
 }
+
+.newsletter input::placeholder {
+  color: rgba(230,230,255,0.6);
+}
+
